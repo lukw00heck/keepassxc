@@ -28,6 +28,7 @@
 #include <algorithm>
 
 class QIODevice;
+class QRegularExpression;
 
 namespace Tools {
 
@@ -43,6 +44,8 @@ void wait(int ms);
 void disableCoreDumps();
 void setupSearchPaths();
 bool createWindowsDACL();
+QRegularExpression convertToRegex(const QString& string, bool useWildcards = false, bool exactMatch = false,
+                                  bool caseSensitive = false);
 
 template <typename RandomAccessIterator, typename T>
 RandomAccessIterator binaryFind(RandomAccessIterator begin, RandomAccessIterator end, const T& value)

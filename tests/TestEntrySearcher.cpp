@@ -161,8 +161,6 @@ void TestEntrySearcher::testSearchTermParser()
     QCOMPARE(terms[4]->field, EntrySearcher::All);
     QCOMPARE(terms[4]->word, QString("noquote"));
 
-    qDeleteAll(terms);
-
     // Test wildcard and regex search terms
     terms = m_entrySearcher.parseSearchTerms("+url:*.google.com *user:\\d+\\w{2}");
 
@@ -173,6 +171,4 @@ void TestEntrySearcher::testSearchTermParser()
 
     QCOMPARE(terms[1]->field, EntrySearcher::Username);
     QCOMPARE(terms[1]->regex.pattern(), QString("\\d+\\w{2}"));
-
-    qDeleteAll(terms);
 }
